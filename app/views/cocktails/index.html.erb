@@ -1,0 +1,35 @@
+
+<div align="center" style="margin-top: 16px"><h1><strong>
+Here the Drink Menu </h1>
+</div>
+<br>
+
+<%= simple_form_for :search, url: cocktails_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[cocktail_name]" id="search" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+<% end %>
+
+
+<div class="cards">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-product">
+      <img src="https://picsum.photos/200" />
+      <div class="card-product-infos">
+        <h2> <%= cocktail.name %></h2>
+        <p><%= link_to "Product description", cocktail_path(cocktail) %></p>
+      </div>
+    </div>
+  <% end %>
+ </div>
+
+<br>
+
+  <div align="center">
+  <%= link_to "Add a New cocktail", new_cocktail_path(@cocktail),class: "btn-ghost"%>
+  </div>
+
+<br>

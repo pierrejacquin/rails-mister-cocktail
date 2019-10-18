@@ -1,0 +1,19 @@
+<div align="center" style="margin-top: 16px"><h1><strong>
+Create a new cocktail</h1>
+</div>
+<br>
+
+<%= form_for(@cocktail) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.submit %>
+<% end %>
+
+<br>
+
+  <div align="center">
+  <%= link_to "Back to the Menu", cocktails_path(@cocktail),class: "btn-ghost"%>
+  </div>
+  <br>

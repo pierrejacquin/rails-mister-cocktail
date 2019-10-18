@@ -1,0 +1,35 @@
+
+<div align="center" style="margin-top: 16px"><h1><strong>
+  Here your recipe for <%= @cocktail.name %></h1>
+</div>
+<br>
+
+<div class="cards">
+
+  <% @cocktail.doses.each do |dose| %>
+    <div class="card-product">
+      <img src="https://picsum.photos/200" />
+      <div class="card-product-infos">
+      <h2><%= dose.ingredient.name %></h2>
+        <h2><%= dose.description %></h2>
+        <p><%= link_to "Delete", cocktail_dose_path(@cocktail, dose),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></p>
+
+        </div>
+    </div>
+  <% end %>
+ </div>
+
+<br>
+
+  <div align="center">
+   <%= link_to "Add a Description", new_cocktail_dose_path(@cocktail, @dose),class: "btn-ghost"%>
+  <%= link_to "Back to Menu",cocktails_path(@cocktail),class: "btn-ghost"%>
+  </div>
+
+<br>
+
+
+
+
